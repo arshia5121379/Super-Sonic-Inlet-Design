@@ -1,0 +1,6 @@
+function fp = make_fric_params(fo, flag, W, xi, sh, Lp, Dre_m)
+% Packs everything the friction march needs (geometry shape + options).
+    fp = struct('kind', flag, 'W', W, 'lu', fo.length_unit_m, 'xi', xi(:), 'sh', sh(:), 'dsh', gradient(sh(:), xi(:)), ...
+                'L', Lp, 'model', fo.model, 'corr', fo.compressibility_correction, 'method', fo.method, 'n', fo.n_grid, ...
+                'eps', fo.roughness_m, 're_dh', fo.re_dh, 'Dre', Dre_m);
+end
